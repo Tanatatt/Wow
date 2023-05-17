@@ -180,7 +180,3 @@ body{
     opacity: 0;
 }
 
-.fadeIn{
-    animation: 0.5s fadeIn forwards;
-    animation-delay: 0.5s;
-}
