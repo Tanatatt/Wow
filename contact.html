@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact</title>
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <div class="buttons">
+      <a href="index.html" target="_blank">
+        <button><h3>Main</h3></button>
+      </a>
+    </div>
+
+    <div class="container">
+      <form onsubmit="sendEmail(); reset(); return false;">
+        <h3>Contact Form</h3>
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="phone" placeholder="Phone number" required />
+        <textarea
+          id="message"
+          rows="4"
+          placeholder="How can we help you?"
+        ></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+      function sendEmail() {
+        Email.send({
+          Host: "smtp.elasticemail.com",
+          Username: "netflixosu175@gmail.com",
+          Password: "3B2F30E9F1A50454D083BBD4A26DE4477326",
+          To: "221125@trinityschools.nz",
+          From: document.getElementById("email").value,
+          Subject: "New contact form enquiry",
+          Body: "And this is the body",
+        }).then((message) => alert(message));
+      }
+    </script>
+  </body>
+</html>
