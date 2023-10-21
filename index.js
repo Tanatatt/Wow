@@ -10,7 +10,7 @@ search.addEventListener('click', () => {
     const APIKey = '74c9d53cbdea3f98e30e44813f02bb63';
     const city = document.querySelector('.search-box input').value;
     
-
+// to remove the picture of the welcome page
     if (element) {
         element.remove();
       }
@@ -18,10 +18,12 @@ search.addEventListener('click', () => {
     if (city === '')
         return;
 
+// call the API from the website called "openweathermap"
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${APIKey}`)
         .then(response => response.json())
         .then(json => {
 
+// When the user inputs the invalid location, the website will lead to the "Invalid location" page
             if (json.cod === '404') {
                 container.style.height = '450px';
                 weatherBox.style.display = 'none';
@@ -39,7 +41,8 @@ search.addEventListener('click', () => {
             const description = document.querySelector('.weather-box .description');
             const humidity = document.querySelector('.weather-details .humidity span');
             const wind = document.querySelector('.weather-details .wind span');
-            
+
+// If the weather is sunny, the picture shows the sunny image, and again with others weather
             switch (json.weather[0].main) {
                 case 'Clear':
                     image.src = 'picture/sunny.png';
